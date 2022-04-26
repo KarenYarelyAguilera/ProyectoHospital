@@ -15,6 +15,8 @@ public class LoginController : Controller
     private readonly MySQLConfiguration _configuration;
     private IUsuarioRepositorio _usuarioRepositorio;
 
+
+
     public LoginController(MySQLConfiguration configuration)
     {
         _configuration = configuration;
