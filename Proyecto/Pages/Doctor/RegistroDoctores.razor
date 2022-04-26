@@ -1,0 +1,71 @@
+﻿@page "/RegistroDoctores"
+
+<PageTitle>Registro Doctores</PageTitle>
+
+
+<h3>Registro para Doctores</h3>
+
+
+<EditForm Model="@doc">
+    <DataAnnotationsValidator />
+
+    <div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Id del Doctor</span>
+  <InputText type="text" id="IdDoctor" @bind-Value="doc.IdDoctor" class="form-control" placeholder="Id Doctor" aria-label="IdDoctor" aria-describedby="basic-addon1"/>
+  <ValidationMessage For="@(() => doc.IdDoctor)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Nombre</span>
+  <InputText type="text" id="Nombre" @bind-Value="doc.Nombre" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1"/>
+  <ValidationMessage For="@(() => doc.Nombre)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Identidad</span>
+  <InputText type="text" id="Identidad" @bind-Value="doc.Identidad" class="form-control" placeholder="Identidad" aria-label="Identidad" aria-describedby="basic-addon1"/>
+  <ValidationMessage For="@(() => doc.Identidad)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">FechaNacimiento</span>
+  <InputText type="text" id="FechaNacimiento" @bind-Value="doc.FechaNacimiento" class="form-control" placeholder="FechaNacimiento" aria-label="FechaNacimiento" aria-describedby="basic-addon1"/>
+<ValidationMessage For="@(() => doc.FechaNacimiento)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Sexo</span>
+  <InputText type="text" id="Sexo" @bind-Value="doc.Sexo" class="form-control" placeholder="Sexo" aria-label="Sexo" aria-describedby="basic-addon1"/>
+<ValidationMessage For="@(() => doc.Sexo)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">NumeroTelefono</span>
+  <InputText type="text" id="NumeroTelefono" @bind-Value="doc.NumeroTelefono" class="form-control" placeholder="NumeroTelefono" aria-label="NumeroTelefono" aria-describedby="basic-addon1"/>
+<ValidationMessage For="@(() => doc.NumeroTelefono)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Direccion</span>
+  <InputText type="text" id="Direccion" @bind-Value="doc.Direccion" class="form-control" placeholder="Direccion" aria-label="Direccion" aria-describedby="basic-addon1"/>
+<ValidationMessage For="@(() => doc.Direccion)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Especialidad</span>
+  <InputText type="text" id="Especialidad" @bind-Value="doc.Especialidad" class="form-control" placeholder="Especialidad" aria-label="Especialidad" aria-describedby="basic-addon1"/>
+<ValidationMessage For="@(() => doc.Especialidad)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Turno</span>
+  <InputText type="text" id="Turno" @bind-Value="doc.Turno" class="form-control" placeholder="Turno" aria-label="Turno" aria-describedby="basic-addon1"/>
+<ValidationMessage For="@(() => doc.Turno)" />
+</div>
+
+<div class="form-group row">
+        <p>
+            <input type="submit" class="btn-toolbar btn-primary" value="Guardar" @onclick="Guardar" />  
+        </p>
+</div>
+</EditForm>

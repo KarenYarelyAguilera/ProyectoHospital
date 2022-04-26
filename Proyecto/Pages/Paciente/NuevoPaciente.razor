@@ -1,0 +1,51 @@
+﻿@page "/Paciente"
+
+<PageTitle>Registro Pacientes</PageTitle>
+
+
+<h3>Registro de Pacientes</h3>
+<DataAnnotationsValidator />
+<EditForm Model="@pac">
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Nombre</span>
+  <input type="text" id="Nombre" @bind-value="pac.Nombre" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+  <ValidationMessage For="@(() => pac.Nombre)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Identidad</span>
+  <input type="text" id="Identidad" @bind-value="pac.Identidad" class="form-control" placeholder="Identidad" aria-label="Identidad" aria-describedby="basic-addon1">
+  <ValidationMessage For="@(() => pac.Identidad)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">FechaNacimiento</span>
+  <input type="text" id="FechaNacimiento" @bind-value="pac.FechaNacimiento" class="form-control" placeholder="FechaNacimiento" aria-label="FechaNacimiento" aria-describedby="basic-addon1">
+  <ValidationMessage For="@(() => pac.FechaNacimiento)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Sexo</span>
+  <input type="text" id="Sexo" @bind-value="pac.Sexo" class="form-control" placeholder="Sexo" aria-label="Sexo" aria-describedby="basic-addon1">
+  <ValidationMessage For="@(() => pac.Sexo)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">NumeroTelefono</span>
+  <input type="text" id="NumeroTelefono" @bind-value="pac.NumeroTelefono" class="form-control" placeholder="NumeroTelefono" aria-label="NumeroTelefono" aria-describedby="basic-addon1">
+  <ValidationMessage For="@(() => pac.NumeroTelefono)" />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">TipodeSangre</span>
+  <input type="text" id="TipodeSangre" @bind-value="pac.TipodeSangre" class="form-control" placeholder="TipodeSangre" aria-label="TipodeSangre" aria-describedby="basic-addon1">
+  <ValidationMessage For="@(() => pac.TipodeSangre)" />
+</div>
+
+<div class="form-group row">
+        <p>
+            <input type="submit" class="btn-toolbar btn-primary" value="Enviar" @onclick="Enviar" />  
+        </p>
+</div>
+</EditForm>

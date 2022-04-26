@@ -1,0 +1,33 @@
+﻿@page "/RegistroDoctores/ListadoDoctores"
+
+<h3>Lista de Doctores</h3>
+<DataAnnotationsValidator />
+<div class"form-group row">
+    <div class="col-sm-2">
+        <a href="/RegistroDoctores" class="btn btn-primary">Nuevo Doctor</a>
+    </div>
+</div>
+
+@if (doctoresLista == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdDoctor</th>
+                <th>Nombre</th>
+                <th>Identidad</th>
+                <th>FechaNacimiento</th>
+                <th>Sexo</th>
+                <th>NumeroTelefono</th>
+                <th>Direccion</th>
+                <th>Especialidad</th>
+                <th></th>
+            </tr>
+        </thead>
+        
+    </table>
+}
