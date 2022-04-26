@@ -24,6 +24,51 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         return new MySqlConnection(CadenaConexion);
     }
 
+
+
+    public async Task<bool> Actualizar(Usuario usuario)
+    {
+        int resultado;
+        try
+        {
+            using MySqlConnection conexion = Conexion();
+            await conexion.OpenAsync();
+            string sql = "UPDATE usuario SET Codigo = @Codigo, Nombre = @Nombre, Rol = @Rol, Contraseña = @Contraseña, EstaActivo = @EstaActivo WHERE Codigo = @Codigo ;";
+            resultado = await conexion.ExecuteAsync(sql, new
+            {
+                usuario.Codigo,
+                usuario.Nombre,
+                usuario.Rol,
+                usuario.Clave,
+                usuario.EstaActivo
+
+            });
+            return resultado > 0;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+
+    }
+
+    public async Task<bool> Eliminar(Usuario usuario)
+    {
+        int resultado;
+        try
+        {
+            using MySqlConnection conexion = Conexion();
+            await conexion.OpenAsync();
+            string sql = "DELETE FROM usuario WHERE Codigo = @Codigo;";
+            resultado = await conexion.ExecuteAsync(sql, new { usuario.Codigo });
+            return resultado > 0;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+    }
+
     public async Task<IEnumerable<Usuario>> GetLista()
     {
         IEnumerable<Usuario> lista = new List<Usuario>();
@@ -57,7 +102,23 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         return user;
     }
 
-    
+    public async Task<bool> Nuevo(Usuario usuario)
+    {
+        int resultado;
+        try
+        {
+            using MySqlConnection conexion = Conexion();
+            await conexion.OpenAsync();
+            string sql = "INSERT INTO usuario (Codigo, Nombre, Rol, Contraseña, EstaActivo) VALUES (@CodigoUsuario, @NombreUsuario, @Rol, @Contraseña, @EstaActivo)";
+            resultado = await conexion.ExecuteAsync(sql, usuario);
+            return resultado > 0;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+    }
+
     public async Task<bool> ValidaUsuario(Login login)
     {
         bool valido = false;
@@ -73,4 +134,6 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         }
         return valido;
     }
+
 }
+

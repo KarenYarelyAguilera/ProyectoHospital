@@ -31,22 +31,22 @@ public class LoginController : Controller
             if (usuarioValido)
             {
                 Usuario usu = await _usuarioRepositorio.GetPorCodigo(login.Codigo);
-                if (usu.EstaActivo)
+                if (usuarioValido)
                 {
                     rol = usu.Rol;
 
-                    //Añadimos los claims Usuario y Rol para tenerlos disponibles en la Cookie
+
                     var claims = new[]
                     {
                         new Claim(ClaimTypes.Name, usu.Codigo),
                         new Claim(ClaimTypes.Role, rol)
                     };
 
-                    //Creamos el principal
+
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
-                    //Generamos la cookie. SignInAsync es un método de extensión del contexto.
+
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal,
                                                 new AuthenticationProperties
                                                 {

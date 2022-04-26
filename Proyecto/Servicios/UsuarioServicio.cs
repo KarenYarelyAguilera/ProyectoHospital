@@ -1,5 +1,4 @@
 ﻿using Datos.Interfaces;
-using Datos.Repositorio;
 using Datos.Repositorios;
 using Modelos;
 using Proyecto.Data;
@@ -18,13 +17,28 @@ public class UsuarioServicio : IUsuarioServicio
         usuarioRepositorio = new UsuarioRepositorio(configuration.CadenaConexion);
     }
 
+    public async Task<bool> Actualizar(Usuario usuario)
+    {
+        return await usuarioRepositorio.Actualizar(usuario);
+    }
+
+    public async Task<bool> Eliminar(Usuario usuario)
+    {
+        return await usuarioRepositorio.Eliminar(usuario);
+    }
+
     public async Task<IEnumerable<Usuario>> GetLista()
     {
         return await usuarioRepositorio.GetLista();
     }
 
-    public async Task<Usuario> GetPorCodigo(string codigo)
+    public async Task<Usuario> GetPorCodigo(string codigoUsuario)
     {
-        return await usuarioRepositorio.GetPorCodigo(codigo);
+        return await usuarioRepositorio.GetPorCodigo(codigoUsuario);
+    }
+
+    public Task<bool> Nuevo(Usuario usuario)
+    {
+        throw new NotImplementedException();
     }
 }
